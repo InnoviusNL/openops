@@ -17,7 +17,7 @@ services:
       DISABLE_VOLUME_CHECK: 'yes'
       DATABASE_NAME: ${OPS_OPENOPS_TABLES_DATABASE_NAME}
       DATABASE_HOST: ${OPS_OPENOPS_TABLES_DB_HOST}
-      DATABASE_PORT: 5432
+      DATABASE_PORT: 5400
       DATABASE_USER: ${OPS_POSTGRES_USERNAME}
       DATABASE_PASSWORD: ${OPS_POSTGRES_PASSWORD}
       REDIS_URL: redis://redis:6379/0
@@ -48,7 +48,7 @@ services:
       POSTGRES_USER: ${OPS_POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${OPS_POSTGRES_PASSWORD}
       POSTGRES_DB: ${OPS_POSTGRES_DATABASE}
-    ports: ['5432:5432']
+    ports: ['5400:5432']
     command: >
       postgres -c max_connections=${POSTGRES_MAX_CONNECTIONS:-300}
     volumes:
@@ -77,7 +77,7 @@ services:
     environment:
       DATABASE_DIALECT: 'postgresql'
       DATABASE_HOST: 'postgres'
-      DATABASE_PORT: '5432'
+      DATABASE_PORT: '5400'
       GUNICORN_LOGLEVEL: 'debug'
       DATABASE_DB: 'analytics'
       DATABASE_USER: ${OPS_POSTGRES_USERNAME}
